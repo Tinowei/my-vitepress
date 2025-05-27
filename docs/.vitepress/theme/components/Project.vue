@@ -28,7 +28,7 @@
                             class=" cursor-pointer bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-6 md:px-7  rounded-full relative group w-full sm:w-max flex justify-center shadow-lg hover:shadow-xl transition-shadow duration-300  ">
                             <div
                                 class="hover:scale-105 transition-transform duration-300 ease-in-out flex items-center justify-center relative px-10 py-2 text-center">
-                                <a :href="project.webUrl"
+                                <a :href="project.webUrl" target="_blank"
                                     class=" no-underline pl-2 text-white hover:text-white! font-semibold ">{{
                                         project.label }}</a>
                             </div>
