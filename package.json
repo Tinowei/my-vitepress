@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "vitepress": "^1.6.3"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.7",
+    "@tailwindcss/vite": "^4.1.7",
+    "aos": "^2.3.4",
+    "esbuild-css-modules-plugin": "^3.1.4",
+    "postcss": "^8.5.3",
+    "super-typer": "^0.1.6",
+    "tailwindcss": "^4.1.7",
+    "vue": "^3.5.14"
+  }
+}
