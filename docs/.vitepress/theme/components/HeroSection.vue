@@ -33,7 +33,7 @@
                             class="font-bold px-6 md:px-7 rounded-full relative w-full sm:w-max group flex justify-center cursor-pointer">
                             <span
                                 class="absolute inset-0 rounded-3xl group-hover:scale-110 origin-center transition-all ease-in-out bg-amber-400 border-2 border-transparent"></span>
-                            <a href="/notes/Javascript/conception"
+                            <a href="/my-vitepress/notes/Javascript/conception"
                                 class="relative flex items-center justify-center text-black! py-2  no-underline! hover:text-white! font-bold!">
                                 Notes
                                 <Arrow class="pl-2 font-bold" />
