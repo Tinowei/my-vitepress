@@ -78,7 +78,7 @@ AOS.init();
 const projects = ref([
     {
         id: 1,
-        image: '/ejoin.png',
+        image: '/my-vitepress/ejoin.png',
         title: "eJoin",
         category: '.NET MVC',
         webUrl: 'https://github.com/Tinowei/eJoin_Project',
@@ -87,7 +87,7 @@ const projects = ref([
     },
     {
         id: 2,
-        image: '/simple-calc.png',
+        image: '/my-vitepress/simple-calc.png',
         title: "simple calculator",
         category: 'VueJS',
         webUrl: 'https://tinowei.github.io/simple-calculator/',
@@ -96,7 +96,7 @@ const projects = ref([
     },
     {
         id: 3,
-        image: '/shortly-app.png',
+        image: '/my-vitepress/shortly-app.png',
         title: "shortly-App",
         category: 'VueJS',
         webUrl: 'https://tinowei.github.io/shortly-app/',
@@ -105,7 +105,7 @@ const projects = ref([
     },
     {
         id: 4,
-        image: '/chatto_login.png',
+        image: '/my-vitepress/chatto_login.png',
         title: "Chatto",
         category: 'Nuxt3',
         webUrl: 'https://github.com/Tinowei/simple-chat-app',
