@@ -9,10 +9,10 @@
             <div class="grid lg:grid-cols-2  xl:gap-14 relative md:pt-24 g:max-w-2xl md:max-w-3xl mx-auto">
                 <div class="lg:py-6 max-lg:order-2 max-md:top-0">
                     <div class="text-center lg:text-left">
-                        <p class="pt-4 text-black dark:text-white  font-bold text-4xl md:text-5xl lg:text-6xl">
+                        <div class="pt-4 text-black!  font-bold text-4xl md:text-5xl lg:text-6xl">
                             Hi, I'm <span
                                 class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-pink-600">Tino</span>
-                        </p>
+                        </div>
                     </div>
                     <p ref="introRef"
                         class="h-20 text-zinc-400 font-medium pt-8 text-center lg:text-left mx-auto max-w-xl max-lg:text-center">
@@ -24,7 +24,7 @@
                             <span
                                 class="absolute inset-0 rounded-3xl group-hover:scale-110 origin-center transition-all ease-in-out bg-amber-400 border-2 border-transparent"></span>
                             <a href="/my-vitepress/Resume.pdf" download="Resume.pdf"
-                                class="relative flex items-center justify-center text-black! py-2 no-underline! hover:text-white!">
+                                class="relative flex items-center justify-center text-black! py-2 no-underline! hover:text-white! font-bold!">
                                 Resume
                                 <Download />
                             </a>
@@ -33,8 +33,8 @@
                             class="font-bold px-6 md:px-7 rounded-full relative w-full sm:w-max group flex justify-center cursor-pointer">
                             <span
                                 class="absolute inset-0 rounded-3xl group-hover:scale-110 origin-center transition-all ease-in-out bg-amber-400 border-2 border-transparent"></span>
-                            <a href="/my-vitepress/Resume.pdf" download="Resume.pdf"
-                                class="relative flex items-center justify-center text-black! py-2 no-underline! hover:text-white!">
+                            <a href="/notes/Javascript/conception"
+                                class="relative flex items-center justify-center text-black! py-2  no-underline! hover:text-white! font-bold!">
                                 Notes
                                 <Arrow class="pl-2 font-bold" />
                             </a>

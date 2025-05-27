@@ -1,6 +1,6 @@
 <template>
     <section id="projects" class="my-20">
-        <p class="text-4xl font-bold text-yellow-500 mb-4 text-center" data-aos="fade-up">
+        <p class="text-3xl font-bold text-yellow-500 mb-4 text-center" data-aos="fade-up">
             My side porjects
         </p>
         <div class="py-8 xl:px-16 px-4 sm:py-16 space-y-12 grid grid-cols-1 pt-10">

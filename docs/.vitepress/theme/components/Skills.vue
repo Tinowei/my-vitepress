@@ -1,6 +1,6 @@
 <template>
     <section id="skills ">
-        <p class="text-4xl font-bold text-yellow-500 dark:text-white mb-4 text-center " data-aos="fade-up">
+        <p class="text-3xl font-bold text-yellow-500 mb-4 text-center " data-aos="fade-up">
             I Have Expriences in ...
         </p>
         <div class="skills-container mt-20 flex flex-wrap w-full p-6 gap-4 justify-center shadow-2xl rounded-3xl bg-white"
