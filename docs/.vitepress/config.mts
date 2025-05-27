@@ -12,8 +12,8 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: '首頁', link: '/' },
-      { text: '學習記錄', 
+      { text: 'Home', link: '/' },
+      { text: 'Notes', 
         link: '/notes/Javascript/conception' }
     ],
 

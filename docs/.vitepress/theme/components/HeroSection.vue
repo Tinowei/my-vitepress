@@ -29,6 +29,16 @@
                                 <Download />
                             </a>
                         </div>
+                        <div
+                            class="font-bold px-6 md:px-7 rounded-full relative w-full sm:w-max group flex justify-center cursor-pointer">
+                            <span
+                                class="absolute inset-0 rounded-3xl group-hover:scale-110 origin-center transition-all ease-in-out bg-amber-400 border-2 border-transparent"></span>
+                            <a href="/my-vitepress/Resume.pdf" download="Resume.pdf"
+                                class="relative flex items-center justify-center text-black! py-2 no-underline! hover:text-white!">
+                                Notes
+                                <Arrow class="pl-2 font-bold" />
+                            </a>
+                        </div>
                         <!-- <button
                             class="border-2 border-amber-400 text-amber-400 px-6 md:px-7 py-3 rounded-full relative group w-full sm:w-max flex justify-center">
                             <div
@@ -81,6 +91,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos';
 import Download from './Icons/download.vue';
+import Arrow from './Icons/Arrow.vue';
 import Typer from "super-typer";
 import { onMounted, onUnmounted, ref } from 'vue';
 
