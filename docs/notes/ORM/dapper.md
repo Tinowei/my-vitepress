@@ -1,22 +1,25 @@
-# Dapper學習筆記
+# Dapper 學習筆記
+
 ## 前言
 
 ADO.NET 是什麼 ？
-- 微軟最一開始2001年，用來對資料庫(SqlServer, XML,MySql, ...)連線進行CRUD的技術。
-- 與資料庫直接溝通，不會有效能折損，因此最有效率的會是ADO.NET 
-- 微軟以**ADO.NET**為基礎 推出**Entity Framework** ->微軟的ORM
-- 目前我們用到的Entity Framework or Dapper 在底層都會被轉成ADO.NET，EntityFramework 轉換的東西會有最佳化的問題，因此可能會有效能上的折損
 
-用ADO.NET的問題點：
+- 微軟最一開始 2001 年，用來對資料庫(SqlServer, XML,MySql, ...)連線進行 CRUD 的技術。
+- 與資料庫直接溝通，不會有效能折損，因此最有效率的會是 ADO.NET
+- 微軟以**ADO.NET**為基礎 推出**Entity Framework** ->微軟的 ORM
+- 目前我們用到的 Entity Framework or Dapper 在底層都會被轉成 ADO.NET，EntityFramework 轉換的東西會有最佳化的問題，因此可能會有效能上的折損
+
+用 ADO.NET 的問題點：
 對資料庫溝通的技術沒有抽象化，代表換一個資料庫就要重寫一次程式，這是一個問題，
-因此出現了ORM(程式與資料庫溝通的代理人)
+因此出現了 ORM(程式與資料庫溝通的代理人)
 
-***ORM 的出現***
+**_ORM 的出現_**
 理念 : 希望跟資料庫做一個隔離，讓資料庫可以被抽換，而不需要完全重寫程式
 例：EFCore(Entity Framework Core)
-``C# Linq 語法``  <--> ``Entity Framework Core(ORM)轉換成ADO.NET`` <--> ``資料庫(可以被抽換 MySql , Oracle , ...)``
+`C# Linq 語法` <--> `Entity Framework Core(ORM)轉換成ADO.NET` <--> `資料庫(可以被抽換 MySql , Oracle , ...)`
 
-***比較***
+**_比較_**
+
 ```
 ADO.NET => 原生SQL語法 => Sql Server
 
@@ -25,37 +28,41 @@ EF   => Linq =>  ADO.NET +  原生SQL語法 => Sql Server
 Dapper => 原生SQL語法  => Sql Server
 ```
 
-
-## 什麼是Dapper ?
+## 什麼是 Dapper ?
 
 - Dapper is a Micro ORM
 - 體積小，速度快
-- **須明確宣告SQL命令字串（和資料庫有相依）**
+- **須明確宣告 SQL 命令字串（和資料庫有相依）**
 - Entity Framework 將抽象化後端資料庫平台（和資料庫無相依，資料庫動，程式不用跟著動）
 
-## Dapper與EF的差異
-Entity Framework資料庫存取四要素：DataModal , DBContext ,資料庫連線 , DI註冊。
+## Dapper 與 EF 的差異
 
-- Dapper沒有DBContext，因此也不需要DBContext作為對資料庫的中樞
-- Dapper也不需要在DBContext註冊DBSet< T > Data Model
-- Dapper不支援EF core First Migration
-- Dapper不一定要Data Model(因為他沒有DBContext) ，他支援dynamic type （ef 要對資料庫做存去一定要有DataModel 因為ef 對資料庫溝通的中樞在DbContext，因此需要有dataModel去做資料承接）
-- Dapper的CRUD語法較像直傳SQL Statement 給資料庫 ; 而EF則較常用Linq或ORM操作方式，後續Provider在轉換成特定資料庫語法。
-- MVC的Scaffolding 只支援EF DbContext 及 Data Model的模式
-- Dapper效能比EF快
+Entity Framework 資料庫存取四要素：DataModal , DBContext ,資料庫連線 , DI 註冊。
 
-因此要用Dapper的前提？ 還是需要先用Ef做Scaffold 和Migration 倒出DataModel。
+- Dapper 沒有 DBContext，因此也不需要 DBContext 作為對資料庫的中樞
+- Dapper 也不需要在 DBContext 註冊 DBSet< T > Data Model
+- Dapper 不支援 EF core First Migration
+- Dapper 不一定要 Data Model(因為他沒有 DBContext) ，他支援 dynamic type （ef 要對資料庫做存去一定要有 DataModel 因為 ef 對資料庫溝通的中樞在 DbContext，因此需要有 dataModel 去做資料承接）
+- Dapper 的 CRUD 語法較像直傳 SQL Statement 給資料庫 ; 而 EF 則較常用 Linq 或 ORM 操作方式，後續 Provider 在轉換成特定資料庫語法。
+- MVC 的 Scaffolding 只支援 EF DbContext 及 Data Model 的模式
+- Dapper 效能比 EF 快
 
+因此要用 Dapper 的前提？ 還是需要先用 Ef 做 Scaffold 和 Migration 倒出 DataModel。
 
-## 使用Dapper https://dappertutorial.net/dapper
+## 使用 Dapper https://dappertutorial.net/dapper
+
 1. 建立資料庫連線物件 SqlConnection
-2. 建立SQL命令字串 string sql = ...
-3. 將SQL命令字串傳遞給Query( sql ) 等方法做查詢
-![[使用Dapper的三步驟.png]]
-### Install Dapper and SqlClient in  NuGet
+2. 建立 SQL 命令字串 string sql = ...
+3. 將 SQL 命令字串傳遞給 Query( sql ) 等方法做查詢
+   ![[使用Dapper的三步驟.png]]
+
+### Install Dapper and SqlClient in NuGet
+
 1. Dapper
 2. Microsoft.Data.SqlClient
+
 ## Dapper 內建的九種方法
+
 1. Execute 新增,刪除,修改
 2. ExecuteReader
 3. ExecuteScalar
@@ -67,8 +74,9 @@ Entity Framework資料庫存取四要素：DataModal , DBContext ,資料庫連�
 9. QueryMultiple
 
 ### Query< T >() 回傳強型別
+
 執行查詢，並回傳強型別物件
-什麼是強型別查詢？ 
+什麼是強型別查詢？
 -> 查詢結果的回傳一定要有一個事先宣告好的模型來承接回傳的結果
 
 (資料庫連線物件需要很重要的東西->連線字串)
@@ -99,14 +107,17 @@ static void QueryStrongTyped()
 }
 ```
 
-### Query() -回傳dynamic List
-執行查詢，回傳一個dynamic動態型別物件
+### Query() -回傳 dynamic List
+
+執行查詢，回傳一個 dynamic 動態型別物件
 什麼是動態型別？
-->***事先不需要宣告模型來承接***
+->**_事先不需要宣告模型來承接_**
+
 ```
 優點：當要對數個資料表選取任意的欄位，不需要對每個組合的查詢都建一個Model
 ```
-缺點 : 因為沒有模型，因此無法使用.來選取屬性(沒有intellisense)，打錯字也無法檢查
+
+缺點 : 因為沒有模型，因此無法使用.來選取屬性(沒有 intellisense)，打錯字也無法檢查
 
 ```c#
 //#2. Dynamic
@@ -126,21 +137,25 @@ static void QueryDynamicTyped()
 ```
 
 ### QueryFirstOrDefault( )
+
 執行查詢，並回傳第一筆資料（多筆回傳第一筆）
+
 ```C#
 static void QueryFirstRecord(){
 	using (SqlConnection conn = new SqlConnection(connString)){
 		string sql = "select * from Employees where Country='UK'";
 		//查詢第一筆資料
 		var emp = conn.QueryFirstOrDefault<Employee>(sql);
-		
+
 	Console.WriteLine($"{emp.EmployeeID}, {emp.LastName}, {emp.Title},  {emp.City}, {emp.Country}");
 	}
 }
 ```
 
 ### QuerySingleOrDefault( )
+
 查詢唯一一筆的資料，若有多筆會跳錯誤
+
 ```c#
 static void QuerySingleRecord()
 {
@@ -158,6 +173,7 @@ static void QuerySingleRecord()
 ```
 
 ### 指定多重參數
+
 ```c#
 //#5 , 指定多重參數
 static void QueryParameters()
@@ -215,7 +231,8 @@ static void QueryParameterList()
 ```
 
 ### 查詢預存程序
-查詢SQL Server資料庫Stored Procedure預存程序。呼叫FindEmployeeByName預存程序，並傳遞參數![[SQLServer的預存程序.png]]
+
+查詢 SQL Server 資料庫 Stored Procedure 預存程序。呼叫 FindEmployeeByName 預存程序，並傳遞參數![[SQLServer的預存程序.png]]
 
 ```c#
 //#7, 查詢預存程序
@@ -235,8 +252,7 @@ static void QuerySP()
 }
 ```
 
-
-### QueryAsync非同步查詢
+### QueryAsync 非同步查詢
 
 ```C#
 //#8, QueryAsync非同步查詢
@@ -256,7 +272,7 @@ static void QueryAsyncStrongTyped()
 }
 ```
 
-### Execute( ) 執行Insert
+### Execute( ) 執行 Insert
 
 ```c#
 static void Main(string[] args)
@@ -274,7 +290,7 @@ static void Main(string[] args)
 	if(rows >0){
 		//todo:處理成功寫入的事情
 	}
-	
+
 	Console.WriteLine($"影響{rows}筆資料");
 	Console.ReadKey();
 }
@@ -299,7 +315,7 @@ static int ExecuteInsert(Employee emp)
 }
 ```
 
-### Execute()執⾏Update
+### Execute()執⾏ Update
 
 ```C#
 //#10, Execute()執行Update
@@ -325,7 +341,7 @@ static int ExecuteUpdate(Employee emp)
 }
 ```
 
-### Execute()執行Delete
+### Execute()執行 Delete
 
 ```C#
 //#11, Execute()執行Delete
@@ -343,16 +359,16 @@ static int ExecuteDelete(Employee emp)
 }
 ```
 
-## 關於資料庫交易 
+## 關於資料庫交易
 
->多筆資料
->跨多表資料
+> 多筆資料
+> 跨多表資料
 
-當異動的資料只有一筆時，假設此資料有99個欄位，Sql保證 當中間有失敗就不會認列。
+當異動的資料只有一筆時，假設此資料有 99 個欄位，Sql 保證 當中間有失敗就不會認列。
 但是當一次要異動多筆資料時，就需要包交易。
 
+### 資料庫交易-使用 SqlTransaction
 
-### 資料庫交易-使用SqlTransaction
 ```C#
 //#12.資料庫交易-使用SqlTransaction
 static void DBTransaction()
@@ -382,8 +398,8 @@ static void DBTransaction()
 }
 ```
 
+### 資料庫交易-使用 TransactionScope
 
-### 資料庫交易-使用TransactionScope
 ```C#
 //13.資料庫交易-使用TransactionScope
 static void DBTransactionScope()

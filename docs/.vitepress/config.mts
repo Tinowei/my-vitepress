@@ -4,8 +4,11 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
 
   title: "Tino's Vitefolio",
-  // base: '/home/',
+  base: '/my-vitepress/',
   description: "A VitePress Site",
+  head:[
+    ['link',{ rel: 'stylesheet', href: './theme/style.css' }]
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -73,6 +76,11 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
-  }
+    ],
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2025 Tino'
+    }
+  },
+  
 })
