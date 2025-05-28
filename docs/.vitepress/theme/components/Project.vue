@@ -81,7 +81,7 @@ const projects = ref([
         image: '/my-vitepress/ejoin.png',
         title: "eJoin",
         category: '.NET MVC',
-        webUrl: 'https://github.com/Tinowei/eJoin_Project',
+        webUrl: 'https://docs.google.com/presentation/d/1HqRuNsXLA7g8bfYeAzLnrv9Tap3BtwXmgvT0y9boN28/edit?slide=id.g2df8ab1d726_0_2027#slide=id.g2df8ab1d726_0_2027',
         description: 'ASP.NET MVC 7進行開發使用Code First From DB產生Data Model，並使用Entity Framework 進行資料庫操作，結合第三方api如cloudinary等以及QRcode掃描票券等功能。',
         label: 'See detail'
     },
